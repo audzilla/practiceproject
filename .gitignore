@@ -100,3 +100,7 @@ InitTestScene*.unity*
 /My project/Library
 /My project/ProjectSettings
 /My project/Temp
+/practiceproject/Library
+/practiceproject/Temp/obj/Assembly-CSharp
+/practiceproject/UserSettings
+/practiceproject/.vsconfig
