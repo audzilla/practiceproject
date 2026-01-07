@@ -1,5 +1,6 @@
 using System;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
@@ -66,6 +67,8 @@ public class GameManager : MonoBehaviour
         if (currentScore >= targetScore)
         {
             //todo: game ends!
+            Debug.Log("Stopping play mode in Editor...");
+            EditorApplication.isPlaying = false;
         }
     }
 }

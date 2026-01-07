@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6847450312415438726, guid: b8b5bc0dab18d034caa81de7d4baa6e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.79
+      value: -3.46
       objectReference: {fileID: 0}
     - target: {fileID: 6847450312415438726, guid: b8b5bc0dab18d034caa81de7d4baa6e8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -982,7 +982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6847450312415438726, guid: b8b5bc0dab18d034caa81de7d4baa6e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.29
+      value: -5.24
       objectReference: {fileID: 0}
     - target: {fileID: 6847450312415438726, guid: b8b5bc0dab18d034caa81de7d4baa6e8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   objectToCatch: {fileID: 6879759149887253093, guid: 78c67cf62b8e8a74a8c567b32a723722, type: 3}
   objectToAvoid: {fileID: 3515758029048558268, guid: 7208d18ed02a6ec47aa2d503668b4abe, type: 3}
   spawnInterval: 1
-  targetScore: 0
+  targetScore: 5
 --- !u!4 &1694412095
 Transform:
   m_ObjectHideFlags: 0
@@ -1270,6 +1270,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5535468878466127554, guid: 71f8304af41128a4baaea9ecb96046f7, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1694412094}
     - target: {fileID: 6626639521054589035, guid: 71f8304af41128a4baaea9ecb96046f7, type: 3}
       propertyPath: m_Name
       value: Player

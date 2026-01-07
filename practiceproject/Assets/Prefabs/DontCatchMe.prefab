@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679753197496554094}
   - component: {fileID: 568642373546518877}
-  - component: {fileID: 1487269071285633483}
+  - component: {fileID: 2663639309693133343}
   m_Layer: 0
   m_Name: DontCatchMe
   m_TagString: Untagged
@@ -61,7 +61,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1487269071285633483
+--- !u!114 &2663639309693133343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

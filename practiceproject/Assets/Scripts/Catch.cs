@@ -8,7 +8,13 @@ public class Catch : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        Destroy(gameObject, .01f);
     }
+
+    public int GetScore()
+    {
+        return score; 
+    } 
+
 
 }
