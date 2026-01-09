@@ -3,6 +3,7 @@ using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float spawnInterval;
     private int currentScore = 0;
     [SerializeField] private int targetScore;
+    [SerializeField] private UIDocument scoreDisplay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,7 +65,11 @@ public class GameManager : MonoBehaviour
 
     public void IncrementScore(int score)
     {
-        currentScore += score; 
+        currentScore += score;
+        Debug.Log("Score: " + score);
+        Label scoreCounter = scoreDisplay.rootVisualElement.Q<Label>(name = "ScoreValue");
+        scoreCounter.text = currentScore.ToString();
+
         if (currentScore >= targetScore)
         {
             //todo: game ends!
