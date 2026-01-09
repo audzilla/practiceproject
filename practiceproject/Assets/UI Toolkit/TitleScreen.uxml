@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%; justify-content: center; -unity-background-image-tint-color: rgb(0, 0, 0); background-image: none; background-color: rgba(0, 0, 0, 0.59);">
+    <ui:VisualElement name="TitleMenu" style="flex-grow: 1; width: 100%; height: 100%; justify-content: center; -unity-background-image-tint-color: rgb(0, 0, 0); background-image: none; background-color: rgba(0, 0, 0, 0.59);">
         <ui:Label text="Catch The Blue Ones" selectable="true" focusable="true" name="Heading" style="align-self: center; font-size: 50px; height: 122px; width: 500px;"/>
-        <ui:Button text="New Game" name="NewGame" style="justify-content: space-evenly; align-items: auto; align-self: center; align-content: center; height: 71px; width: 184px; font-size: 28px;"/>
-        <ui:Button text="Quit" name="Quit" style="justify-content: space-evenly; align-items: auto; align-self: center; align-content: center; height: 71px; width: 184px; font-size: 28px;"/>
+        <ui:Button text="New Game" name="StartGame" style="justify-content: space-evenly; align-items: auto; align-self: center; align-content: center; height: 71px; width: 184px; font-size: 28px;"/>
+        <ui:Button text="Quit" name="QuitGame" style="justify-content: space-evenly; align-items: auto; align-self: center; align-content: center; height: 71px; width: 184px; font-size: 28px;"/>
     </ui:VisualElement>
 </ui:UXML>

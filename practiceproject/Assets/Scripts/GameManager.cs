@@ -14,25 +14,53 @@ public class GameManager : MonoBehaviour
     private float timeElapsed;
     [SerializeField] private float spawnInterval;
     private int currentScore = 0;
-    [SerializeField] private int targetScore;
+    [SerializeField] private int winScore;
+    [SerializeField] private float loseScore;
     [SerializeField] private UIDocument scoreDisplay;
+    [SerializeField] private UIDocument startMenu;
+    [SerializeField] private UIDocument endScreen;
+    [SerializeField] private GameObject EndUI;
+    [SerializeField] private GameObject MenuUI;
+    public bool GameActive = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         timeElapsed = 0f;
-        
+        EndUI.SetActive(false);
+        MenuUI.SetActive(true);
+        Button StartGameButton = startMenu.rootVisualElement.Q<Button>(name = "StartGame");
+        StartGameButton.clicked += StartGameClicked;
+        Button QuitGameButton = startMenu.rootVisualElement.Q<Button>(name = "QuitGame");
+        QuitGameButton.clicked += QuitGameClicked;
+    }
+
+    private void QuitGameClicked()
+    {
+        // This code runs only in the Unity Editor
+        #if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+        // This code runs in a built application (Windows, Mac, Linux, etc.)
+        #else
+            Application.Quit();
+        #endif
+    }
+
+    private void StartGameClicked()
+    {
+        MenuUI.SetActive(false);
+        GameActive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        if (timeElapsed >= spawnInterval)
+        if (timeElapsed >= spawnInterval && GameActive == true)
         {
             SpawnSomething();
         }
-        
     }
 
     static GameObject GetRandomSpawnPoint(GameObject[] spawnPoints)
@@ -48,12 +76,12 @@ public class GameManager : MonoBehaviour
         return spawnPoints[next];
     }
 
-    void SpawnSomething() 
+    void SpawnSomething()
     {
         //decide which type of object to spawn
 
         //to do
-        
+
         //get a random spawn point and spawn that object there
         Vector3 position = new Vector3();
         position = GetRandomSpawnPoint(spawnPoints).transform.position;
@@ -70,11 +98,41 @@ public class GameManager : MonoBehaviour
         Label scoreCounter = scoreDisplay.rootVisualElement.Q<Label>(name = "ScoreValue");
         scoreCounter.text = currentScore.ToString();
 
-        if (currentScore >= targetScore)
+        if (currentScore >= winScore)
         {
-            //todo: game ends!
-            Debug.Log("Stopping play mode in Editor...");
-            EditorApplication.isPlaying = false;
+            EndGame(true);
+        }
+        else if (currentScore <= loseScore)
+        {
+            EndGame(false);
         }
     }
+
+    public void EndGame(bool PlayerWon)
+    {
+        GameActive = false;
+        Button EndText = endScreen.rootVisualElement.Q<Button>(name = "YouWin");
+        EndUI.SetActive(true);
+
+        //if (PlayerWon)
+        //{            
+        //    EndText.text = "You Win";            
+        //}
+        //else
+        //{
+        //    EndText.text = "You Lose";            
+        //}
+
+        EndText.clicked += EndTextClicked;
+
+    }
+
+    private void EndTextClicked()
+    {
+        timeElapsed = 0f;
+        currentScore = 0;
+        EndUI.SetActive(false);
+        MenuUI.SetActive(true);
+    }
+
 }
