@@ -111,8 +111,9 @@ public class GameManager : MonoBehaviour
     public void EndGame(bool PlayerWon)
     {
         GameActive = false;
-        Button EndText = endScreen.rootVisualElement.Q<Button>(name = "YouWin");
         EndUI.SetActive(true);
+        //Button EndText = endScreen.rootVisualElement.Q<Button>(name = "YouWin");
+        
 
         //if (PlayerWon)
         //{            
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
         //    EndText.text = "You Lose";            
         //}
 
-        EndText.clicked += EndTextClicked;
+        //EndText.clicked += EndTextClicked;
 
     }
 
