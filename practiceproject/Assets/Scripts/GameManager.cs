@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.UIElements;
+using Random = System.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -53,18 +54,18 @@ public class GameManager : MonoBehaviour
     private void QuitGame()
     {
         // This code runs only in the Unity Editor
-        if (Application.isEditor)
-        {
-            EditorApplication.isPlaying = false;
-        }
+#if UNITY_EDITOR
+
+        EditorApplication.isPlaying = false;
+
+#endif
         // This code runs in a built application (Windows, Mac, Linux, etc.)
-        else
-        {
-            Application.Quit();
-        }
+
+        Application.Quit();
+
 
     }
-  
+
     // Update is called once per frame
     void Update()
     {
@@ -90,15 +91,24 @@ public class GameManager : MonoBehaviour
 
     void SpawnSomething()
     {
-        //decide which type of object to spawn
+        GameObject SpawnNext;
 
-        //to do
+        //decide which type of object to spawn
+        var WhichToSpawn = new Random();
+        if ((WhichToSpawn.Next() % 2) == 0)
+        {
+            SpawnNext = objectToCatch;
+        }
+        else
+        {
+            SpawnNext = objectToAvoid;
+        }
 
         //get a random spawn point and spawn that object there
         Vector3 position = new Vector3();
         position = GetRandomSpawnPoint(spawnPoints).transform.position;
 
-        Instantiate(objectToCatch, position, quaternion.identity);
+        Instantiate(SpawnNext, position, quaternion.identity);
 
         timeElapsed = 0f;
     }

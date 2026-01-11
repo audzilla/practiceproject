@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: b903cbba795258c4989c3fb895376772, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: ff572abc2898b6943970a74e78eec0d1, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Position: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   - {fileID: 1614213176}
   objectToCatch: {fileID: 6879759149887253093, guid: 78c67cf62b8e8a74a8c567b32a723722, type: 3}
   objectToAvoid: {fileID: 3515758029048558268, guid: 7208d18ed02a6ec47aa2d503668b4abe, type: 3}
-  spawnInterval: 1
+  spawnInterval: 0.2
   winScore: 5
   loseScore: -20
   scoreDisplay: {fileID: 1464499902}
@@ -1322,7 +1322,6 @@ MonoBehaviour:
   endScreen: {fileID: 1362634810}
   EndUI: {fileID: 1362634809}
   MenuUI: {fileID: 1033760751}
-  GameActive: 0
 --- !u!4 &1694412095
 Transform:
   m_ObjectHideFlags: 0

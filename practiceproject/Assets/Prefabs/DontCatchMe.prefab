@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1679753197496554094}
   - component: {fileID: 568642373546518877}
   - component: {fileID: 2663639309693133343}
+  - component: {fileID: 1256641036100937225}
   m_Layer: 0
   m_Name: DontCatchMe
   m_TagString: Untagged
@@ -73,7 +74,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d246e083cb01fe40a7e905e4639553e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Catch
-  score: -5
+  score: -2
+--- !u!135 &1256641036100937225
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515758029048558268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4929433723832088761
 GameObject:
   m_ObjectHideFlags: 0
