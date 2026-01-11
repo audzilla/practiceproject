@@ -21,38 +21,50 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIDocument endScreen;
     [SerializeField] private GameObject EndUI;
     [SerializeField] private GameObject MenuUI;
-    public bool GameActive = false;
+    bool GameActive = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        timeElapsed = 0f;
+        ShowStartMenu();
+    }
+
+    void ShowStartMenu()
+    {
         EndUI.SetActive(false);
         MenuUI.SetActive(true);
         Button StartGameButton = startMenu.rootVisualElement.Q<Button>(name = "StartGame");
-        StartGameButton.clicked += StartGameClicked;
+        StartGameButton.clicked += InitializeGame;
         Button QuitGameButton = startMenu.rootVisualElement.Q<Button>(name = "QuitGame");
-        QuitGameButton.clicked += QuitGameClicked;
+        QuitGameButton.clicked += QuitGame;
     }
 
-    private void QuitGameClicked()
-    {
-        // This code runs only in the Unity Editor
-        #if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-        // This code runs in a built application (Windows, Mac, Linux, etc.)
-        #else
-            Application.Quit();
-        #endif
-    }
-
-    private void StartGameClicked()
+    void InitializeGame()
     {
         MenuUI.SetActive(false);
         GameActive = true;
+        timeElapsed = 0f;
+        currentScore = 0;
+        IncrementScore(0);
+
     }
 
+    private void QuitGame()
+    {
+        // This code runs only in the Unity Editor
+        if (Application.isEditor)
+        {
+            EditorApplication.isPlaying = false;
+        }
+        // This code runs in a built application (Windows, Mac, Linux, etc.)
+        else
+        {
+            Application.Quit();
+        }
+
+    }
+  
     // Update is called once per frame
     void Update()
     {
@@ -112,28 +124,19 @@ public class GameManager : MonoBehaviour
     {
         GameActive = false;
         EndUI.SetActive(true);
-        //Button EndText = endScreen.rootVisualElement.Q<Button>(name = "YouWin");
-        
+        Button EndText = endScreen.rootVisualElement.Q<Button>(name = "GameOver");
 
-        //if (PlayerWon)
-        //{            
-        //    EndText.text = "You Win";            
-        //}
-        //else
-        //{
-        //    EndText.text = "You Lose";            
-        //}
+        if (PlayerWon)
+        {
+            EndText.text = "You Win!";
+        }
+        else
+        {
+            EndText.text = "You Lose!";
+        }
 
-        //EndText.clicked += EndTextClicked;
+        EndText.clicked += ShowStartMenu;
 
-    }
-
-    private void EndTextClicked()
-    {
-        timeElapsed = 0f;
-        currentScore = 0;
-        EndUI.SetActive(false);
-        MenuUI.SetActive(true);
     }
 
 }
