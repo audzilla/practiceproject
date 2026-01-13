@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Catch
   score: 1
+  PlayOnCatch: {fileID: 8300000, guid: 869e32860ceefce4d88778ebbb932f44, type: 3}
 --- !u!65 &2577496119513729595
 BoxCollider:
   m_ObjectHideFlags: 0

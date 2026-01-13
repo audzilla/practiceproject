@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Catch
   score: -2
+  PlayOnCatch: {fileID: 8300000, guid: 67dc626258a4e0d4da0fa74d77e7a24e, type: 3}
 --- !u!135 &1256641036100937225
 SphereCollider:
   m_ObjectHideFlags: 0

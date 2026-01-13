@@ -5,6 +5,7 @@ using UnityEngine;
 public class Catch : MonoBehaviour
 {
     [SerializeField] private int score;
+    public AudioClip PlayOnCatch;
 
     void OnTriggerEnter(Collider other)
     {

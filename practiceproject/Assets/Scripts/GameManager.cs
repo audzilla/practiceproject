@@ -22,13 +22,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIDocument endScreen;
     [SerializeField] private GameObject EndUI;
     [SerializeField] private GameObject MenuUI;
-    bool GameActive = false;
+    [SerializeField] private GameObject Player;
+    public bool GameActive { get; set;}
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ShowStartMenu();
+        ShowStartMenu(); 
+             
     }
 
     void ShowStartMenu()
@@ -48,6 +50,9 @@ public class GameManager : MonoBehaviour
         timeElapsed = 0f;
         currentScore = 0;
         IncrementScore(0);
+
+        var movement = Player.GetComponent<PlayerMovement>();
+        movement.EnableMovement();
 
     }
 
@@ -115,7 +120,13 @@ public class GameManager : MonoBehaviour
 
     public void IncrementScore(int score)
     {
+        if (GameActive == false)
+        {
+            return;
+        }
+
         currentScore += score;
+
         Debug.Log("Score: " + score);
         Label scoreCounter = scoreDisplay.rootVisualElement.Q<Label>(name = "ScoreValue");
         scoreCounter.text = currentScore.ToString();
@@ -132,9 +143,12 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool PlayerWon)
     {
-        GameActive = false;
+        GameActive = false;        
         EndUI.SetActive(true);
         Button EndText = endScreen.rootVisualElement.Q<Button>(name = "GameOver");
+
+        var movement = Player.GetComponent<PlayerMovement>();
+        movement.DisableMovement();
 
         if (PlayerWon)
         {

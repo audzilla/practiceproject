@@ -189,7 +189,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
-  speed: 0.03
+  speed: 0.05
 --- !u!114 &5535468878466127554
 MonoBehaviour:
   m_ObjectHideFlags: 0
